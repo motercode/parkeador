@@ -24,6 +24,7 @@ class WifiScanner(private val context: Context) {
         }
     }
 
+    @Suppress("DEPRECATION")
     fun startScanning() {
         val intentFilter = IntentFilter()
         intentFilter.addAction(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION)

@@ -10,20 +10,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun MainScreen(
-    onCrearHuellaClick: () -> Unit,
-    onBuscarHuellaClick: () -> Unit
+fun BuscarHuellaScreen(
+    onStartSearchClick: () -> Unit
 ) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Button(onClick = onCrearHuellaClick) {
-            Text("Crear Huella")
-        }
-        Button(onClick = onBuscarHuellaClick) {
-            Text("Buscar Huella")
+        Button(onClick = onStartSearchClick) {
+            Text("Start Search")
         }
     }
 }

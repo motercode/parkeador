@@ -38,7 +38,10 @@ class BluetoothScanner(private val context: Context) {
     fun startScanning() {
         val filter = IntentFilter(BluetoothDevice.ACTION_FOUND)
         context.registerReceiver(receiver, filter)
-        bluetoothAdapter?.startDiscovery()
+        // TODO: Handle the case where the permission is not granted
+        if (context.checkSelfPermission(android.Manifest.permission.BLUETOOTH_SCAN) == android.content.pm.PackageManager.PERMISSION_GRANTED) {
+            bluetoothAdapter?.startDiscovery()
+        }
     }
 
     fun stopScanning() {

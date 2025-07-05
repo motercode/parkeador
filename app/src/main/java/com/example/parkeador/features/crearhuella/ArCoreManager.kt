@@ -2,6 +2,8 @@ package com.example.parkeador.features.crearhuella
 
 import android.app.Activity
 import android.content.Context
+import android.os.Handler
+import android.os.Looper
 import android.view.SurfaceView
 import com.google.ar.core.ArCoreApk
 import com.google.ar.core.Session
@@ -50,7 +52,7 @@ class ArCoreManager(private val context: Context) {
         val availability = ArCoreApk.getInstance().checkAvailability(activity)
         if (availability.isTransient) {
             // Re-query at 5Hz while compatibility is checked in the background.
-            android.os.Handler().postDelayed({
+            Handler(Looper.getMainLooper()).postDelayed({
                 checkArCoreAvailability(activity)
             }, 200)
         }

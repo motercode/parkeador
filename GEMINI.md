@@ -54,6 +54,42 @@ El objetivo es crear una app para Android llamada "PuntoExacto". La app tendrá 
 
 ---
 
+## FEAT Workflow
+
+When a prompt starts with the word "FEAT", the following workflow will be triggered:
+
+1.  **Issue Creation:** An issue will be created on GitHub. The title of the issue will be a summary of the feature request.
+2.  **Assign Issue:** The issue will be assigned to "motercode".
+3.  **Development Plan:** A comment will be added to the issue outlining the development plan for the feature.
+4.  **Branching:** A new branch will be created from `main` with a descriptive name (e.g., `feat/issue-123-new-feature`).
+5.  **Development:** The feature will be developed following best practices.
+6.  **Final Summary:** Before closing the issue, a comprehensive summary will be posted as a comment. This summary will include:
+    *   A summary of the development process.
+    *   A summary of any problems encountered and their resolutions.
+    *   A list of any pending topics.
+    *   A list of any known errors.
+7.  **Issue Closing:** The issue will be closed.
+
+---
+
+## BUG Workflow
+
+When a prompt starts with the word "BUG", the following workflow will be triggered:
+
+1.  **Issue Creation:** An issue will be created on GitHub. The title of the issue will be a summary of the bug report.
+2.  **Assign Issue:** The issue will be assigned to "motercode".
+3.  **Development Plan:** A comment will be added to the issue outlining the plan to fix the bug.
+4.  **Branching:** A new branch will be created from `main` with a descriptive name (e.g., `fix/issue-123-bug-fix`).
+5.  **Development:** The bug will be fixed following best practices.
+6.  **Final Summary:** Before closing the issue, a comprehensive summary will be posted as a comment. This summary will include:
+    *   A summary of the development process.
+    *   A summary of any problems encountered and their resolutions.
+    *   A list of any pending topics.
+    *   A list of any known errors.
+7.  **Issue Closing:** The issue will be closed.
+
+---
+
 ## Gradle Issue Resolution Workflow:
 
 1.  **Branching:** For each Gradle issue (or a set of related issues), I will create a new branch from `main` with a descriptive name (e.g., `fix/gradle-deprecation-warning`).

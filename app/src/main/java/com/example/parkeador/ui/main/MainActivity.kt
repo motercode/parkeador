@@ -3,6 +3,7 @@ package com.example.parkeador.ui.main
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
@@ -15,29 +16,22 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.parkeador.permissions.PermissionManager
 
-import androidx.core.app.ActivityCompat
-
-class MainActivity : ComponentActivity(), ActivityCompat.OnRequestPermissionsResultCallback {
+class MainActivity : ComponentActivity() {
 
     private lateinit var permissionManager: PermissionManager
+    private val requestPermissionLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
+            permissionManager.handlePermissionsResult(permissions)
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        permissionManager = PermissionManager(this, this)
-        permissionManager.checkAndRequestPermissions()
+        permissionManager = PermissionManager(this)
+        permissionManager.requestPermissions(requestPermissionLauncher)
 
         setContent {
             MainScreen()
         }
-    }
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        permissionManager.handlePermissionsResult(requestCode, permissions, grantResults)
     }
 }
 

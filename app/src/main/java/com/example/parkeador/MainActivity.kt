@@ -1,6 +1,7 @@
 package com.example.parkeador
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -83,6 +84,7 @@ class MainActivity : ComponentActivity() {
 
     companion object {
         private const val REQUEST_CODE_PERMISSIONS = 10
+        @SuppressLint("InlinedApi")
         private val REQUIRED_PERMISSIONS =
             mutableListOf(
                 Manifest.permission.CAMERA,

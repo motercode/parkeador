@@ -146,3 +146,9 @@ When a prompt starts with the word "BUG", the following workflow will be trigger
     # Correct: This will set the body to the content of filename.md
     gh api ... -f body=@filename.md
     ```
+
+---
+
+## Critical Reminders:
+
+*   **`gh api` command:** Always double-check the syntax of the `gh api` command before executing it. Specifically, when passing file content, ensure you are using the `@` symbol correctly and not passing the filename as a string.

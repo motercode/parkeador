@@ -13,17 +13,12 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.parkeador.features.buscarhuella.BuscarHuellaScreen
-import com.example.parkeador.features.buscarhuella.BuscarHuellaViewModel
-import com.example.parkeador.features.crearhuella.ArCoreManager
-import com.example.parkeador.features.crearhuella.CrearHuellaScreen
-import com.example.parkeador.features.crearhuella.CrearHuellaViewModel
-import com.example.parkeador.ui.theme.ParkeadorTheme
+import com.example.parkeador.presentation.ui.HuellaCaptureScreen
+import com.example.parkeador.presentation.viewmodel.HuellaCaptureViewModel
 
 class MainActivity : ComponentActivity() {
 
-    private val crearHuellaViewModel: CrearHuellaViewModel by viewModels()
-    private val buscarHuellaViewModel: BuscarHuellaViewModel by viewModels()
+    private val huellaCaptureViewModel: HuellaCaptureViewModel by viewModels()
     private lateinit var arCoreManager: ArCoreManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,23 +38,11 @@ class MainActivity : ComponentActivity() {
                         )
                     }
                     composable(Routes.CREAR_HUELLA_SCREEN) {
-                        val isCapturing by crearHuellaViewModel.isCapturing.collectAsState()
-                        CrearHuellaScreen(
-                            isCapturing = isCapturing,
-                            arCoreManager = arCoreManager,
-                            onStartCaptureClick = {
-                                if (allPermissionsGranted()) {
-                                    crearHuellaViewModel.onStartCaptureClick()
-                                } else {
-                                    requestPermissions()
-                                }
-                            },
-                            onStopCaptureClick = crearHuellaViewModel::onStopCaptureClick
-                        )
+                        HuellaCaptureScreen(viewModel = huellaCaptureViewModel)
                     }
                     composable(Routes.BUSCAR_HUELLA_SCREEN) {
                         BuscarHuellaScreen(
-                            onStartSearchClick = buscarHuellaViewModel::onStartSearchClick
+                            onStartSearchClick = { /* TODO */ }
                         )
                     }
                 }

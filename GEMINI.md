@@ -58,6 +58,8 @@ El objetivo es crear una app para Android llamada "PuntoExacto". La app tendrá 
 
 When a prompt starts with the word "FEAT", the following workflow will be triggered:
 
+**Note:** All issue-related operations will be performed using the `gh api` command.
+
 1.  **Issue Creation:** An issue will be created on GitHub. The title of the issue will be a summary of the feature request.
 2.  **Assign Issue:** The issue will be assigned to "motercode".
 3.  **Development Plan:** A comment will be added to the issue outlining the development plan for the feature.
@@ -75,6 +77,8 @@ When a prompt starts with the word "FEAT", the following workflow will be trigge
 ## BUG Workflow
 
 When a prompt starts with the word "BUG", the following workflow will be triggered:
+
+**Note:** All issue-related operations will be performed using the `gh api` command.
 
 1.  **Issue Creation:** An issue will be created on GitHub. The title of the issue will be a summary of the bug report.
 2.  **Assign Issue:** The issue will be assigned to "motercode".

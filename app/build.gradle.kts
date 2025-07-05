@@ -37,9 +37,9 @@ android {
     buildFeatures {
         compose = true
     }
-    packagingOptions {
+    packaging {
         jniLibs {
-            useLegacyPackaging = true
+            keepDebugSymbols.add("**/*.so")
         }
     }
 }

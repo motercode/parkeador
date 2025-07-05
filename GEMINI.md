@@ -133,3 +133,16 @@ When a prompt starts with the word "BUG", the following workflow will be trigger
     * Use `git log` to view the commit history.
     * Use `git blame` to see who last modified a line of code.
     * Use `git bisect` to find the commit that introduced a bug.
+
+---
+
+## GitHub API Best Practices:
+
+*   **Using `gh api` with file content:** When using the `gh api` command to create or update issues, comments, or other GitHub objects with content from a file, it is important to pass the file's content correctly. Use the `-f body=@filename` syntax to pass the content of the file, not the filename as a string. For example:
+    ```bash
+    # Incorrect: This will set the body to the string "@filename.md"
+    gh api ... -f body="@filename.md"
+
+    # Correct: This will set the body to the content of filename.md
+    gh api ... -f body=@filename.md
+    ```
